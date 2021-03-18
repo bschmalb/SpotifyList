@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Charts
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Charts</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- loading inicator -->
+  <div *ngIf="songs.length < 1" class="centerLoading">
+    <ion-spinner></ion-spinner>
+  </div>
+  <!-- songList -->
+  <ion-list>
+    <ion-item *ngFor="let song of songs; let i = index" (click)="openDetail(i)">
+      <p style="width:24px; text-align: center;"><small>{{song.position}}</small></p>
+      <img class="ion-padding" src={{song.image}}>
+      <ion-label class="ion-text-wrap">
+        <p style="font-size: 16px; color: white;">{{song.title}}</p>
+        <p style="font-size: 12px; color: gray">{{song.artist}}</p>
+      </ion-label>
+      <ion-label class="ion-text-right"><small>{{song.streams}}</small></ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
